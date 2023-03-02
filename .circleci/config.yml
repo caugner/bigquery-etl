@@ -107,6 +107,7 @@ jobs:
           command: |
             rm -rf sql/
             cp -r /tmp/workspace/staged-generated-sql/sql sql
+            cp -r /tmp/workspace/private-generated-sql/sql sql
             rm -rf tests/
             cp -r /tmp/workspace/staged-generated-sql/tests tests
       - run:
