@@ -112,6 +112,7 @@ jobs:
       - run:
           name: Run SQL tests
           command: |
+            find /tmp/workspace/private-generated-sql/sql -type d name 'udf' exec cp --parents '{}' sql \;
             if [ -n "$CIRCLE_PR_NUMBER" ]; then
               echo "Cannot pass creds to forked PRs," \
                 "so skipping routine and SQL tests"
@@ -638,6 +639,7 @@ workflows:
           context: data-eng-circleci-tests
           requires:
             - deploy-changes-to-stage
+            - private-generate-sql
       - dry-run-sql:
           requires:
             - deploy-changes-to-stage
