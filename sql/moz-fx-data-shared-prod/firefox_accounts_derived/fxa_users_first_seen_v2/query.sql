@@ -5,6 +5,8 @@ WITH _current AS (
     `language`,
     os_name,
     os_version,
+    seen_in_tier1_country,
+    registered,
   FROM
     `firefox_accounts_derived.fxa_users_daily_v2`
   WHERE

@@ -50,8 +50,7 @@ fields:
     one of the following countries for
     a specific submission_date:
     ('United States','France',
-    'Germany','United Kingdom','Canada')
-    for any of the services they used that day.
+    'Germany','United Kingdom','Canada').
 
 - mode: NULLABLE
   name: registered

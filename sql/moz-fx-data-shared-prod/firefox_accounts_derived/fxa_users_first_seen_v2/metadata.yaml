@@ -1,10 +1,10 @@
 friendly_name: FxA Users First Seen
 description: |-
-  Contains information regarding when we observed a specific
-  user_id for the first time, along with some attributes:
-  country, language, os_name, os_version.
+  Contains the first entry seen inside fxa_users_daily_v2
+  for each user along with some attributes.
 
-  This table is build from fxa_users_daily
+  Partitioned by submission_date,
+  clustered by country, os_name
 owners:
 - kignasiak@mozilla.com
 labels:
@@ -16,9 +16,6 @@ scheduling:
   start_date: '2021-07-09'
   priority: 80
   depends_on_past: true
-  # This query updates the entire existing table every day rather than appending
-  # a new partition, so we need to disable date_partition_parameter and instead
-  # pass submission_date as a generic param.
   date_partition_parameter: null
   parameters:
   - submission_date:DATE:{{ds}}

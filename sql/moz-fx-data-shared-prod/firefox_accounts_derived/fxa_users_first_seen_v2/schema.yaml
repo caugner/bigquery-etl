@@ -41,3 +41,22 @@ fields:
   type: STRING
   description: |
     Version of the OS the device was using.
+
+- mode: NULLABLE
+  name: seen_in_tier1_country
+  type: BOOLEAN
+  description: |
+    Set to True if a user sent an event from
+    one of the following countries for
+    a specific submission_date:
+    ('United States','France',
+    'Germany','United Kingdom','Canada')
+    when seen for the first time.
+
+- mode: NULLABLE
+  name: registered
+  type: BOOLEAN
+  description: |
+    Set to True if the user submitted
+    the event_type of `fxa_reg - complete`
+    event on the specific submission_date.
