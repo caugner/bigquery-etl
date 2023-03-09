@@ -378,7 +378,7 @@ jobs:
 
             mkdir private-sql
             find /tmp/workspace/private-generated-sql -type d -name 'udf' -exec cp --parents -r '{}' private-sql \;
-            cp -r private-sql/tmp/workspace/private-generated-sql/sql sql
+            cp -r private-sql/tmp/workspace/private-generated-sql/ sql
             rm -r private-sql
 
             PATHS="$(git diff --no-index --name-only --diff-filter=d generated-sql/sql sql)" || true
