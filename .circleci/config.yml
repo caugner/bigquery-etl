@@ -376,10 +376,7 @@ jobs:
             export GOOGLE_APPLICATION_CREDENTIALS="/tmp/gcp.json"
             echo "$GCLOUD_SERVICE_KEY" > "$GOOGLE_APPLICATION_CREDENTIALS"
 
-            mkdir private-sql
-            find /tmp/workspace/private-generated-sql -type d -name 'udf' -exec rsync -aR '{}' private-sql \;
-            cp -r private-sql/tmp/workspace/private-generated-sql/ sql
-            rm -r private-sql
+            cp -r /tmp/workspace/private-generated-sql/ sql
 
             PATHS="$(git diff --no-index --name-only --diff-filter=d generated-sql/sql sql)" || true
             echo $PATHS
