@@ -377,7 +377,7 @@ jobs:
             echo "$GCLOUD_SERVICE_KEY" > "$GOOGLE_APPLICATION_CREDENTIALS"
 
             mkdir private-sql
-            find /tmp/workspace/private-generated-sql -type d -name 'udf' -exec cp --parents -r '{}' private-sql \;
+            find /tmp/workspace/private-generated-sql -type d -name 'udf' -exec rsync -aR '{}' private-sql \;
             cp -r private-sql/tmp/workspace/private-generated-sql/ sql
             rm -r private-sql
 
